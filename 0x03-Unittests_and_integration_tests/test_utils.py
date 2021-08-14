@@ -2,10 +2,13 @@
 """ Unittest module """
 import unittest
 from utils import access_nested_map
+from parameterized import parameterized
 
 
 class TestAccessNestedMap(unittest.TestCase):
     """ Class for testing Nested Map function """
+    # unittest does not support test decorators,
+    # only tests created with @parameterized.expand will be executed
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),
         ({"a": {"b": 2}}, ("a",), {'b': 2}),
